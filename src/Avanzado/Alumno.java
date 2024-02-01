@@ -5,14 +5,15 @@ public class Alumno {
 	private String nombre;
 	private String apellidos;
 	private int telefono;
-	private double calificaciones[];
+	private Asignatura[] asignaturas;
+	private int contador;
 	
 
-	public Alumno(int nota) {
-		calificaciones = new double[nota];
-		nombre = null;
-		apellidos = null;
-		telefono = 0;
+	public Alumno(String nombre, String apellidos, int telefono) {
+		asignaturas = new Asignatura[4];
+		this.nombre=nombre;
+		this.apellidos=apellidos;
+		this.telefono=telefono;
 
 	}
 
@@ -39,10 +40,18 @@ public class Alumno {
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
+	
+	public void add(Asignatura asignatura) {
+		if(contador<asignaturas.length) {
+			asignaturas[contador]=asignatura;
+			contador++;
+		}
+		
+	}
 
 	@Override
 	public String toString() {
-		return nombre + "," + apellidos + "," + telefono + "," + calificaciones;
+		return nombre + "," + apellidos + "," + telefono;
 	}
 
 }
